@@ -26,13 +26,18 @@ class RoomResource extends Resource
                 Forms\Components\TextInput::make('name')
                     ->required()
                     ->unique(ignoreRecord: true),
-                Forms\Components\Select::make('roomTypes')
+                // Forms\Components\Select::make('roomTypes')
+                //     ->label('Room Types')
+                //     ->multiple()
+                //     ->relationship('roomTypes', 'name') 
+                //     ->preload()
+                //     ->searchable(),
+                Forms\Components\CheckboxList::make('roomTypes')
                     ->label('Room Types')
-                    ->multiple()
-                    ->relationship('roomTypes', 'name') 
-                    ->preload()
-                    ->searchable(),
-            ]);
+                    ->relationship('roomTypes', 'name') // BelongsToMany relationship
+                    ->columns(2) // Optional: set number of columns
+                    ->required(), // Optional: make it required
+            ])->columns(1);
     }
 
     public static function table(Table $table): Table

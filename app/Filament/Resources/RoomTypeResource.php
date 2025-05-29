@@ -25,7 +25,8 @@ class RoomTypeResource extends Resource
             ->schema([
                 Forms\Components\TextInput::make('name')
                     ->required()
-                    ->unique(ignoreRecord: true),
+                    ->unique(ignoreRecord: true)
+                    ->columnSpan(2),
             ]);
     }
 
