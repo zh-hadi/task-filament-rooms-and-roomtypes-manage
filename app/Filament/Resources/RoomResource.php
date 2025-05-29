@@ -34,9 +34,9 @@ class RoomResource extends Resource
                 //     ->searchable(),
                 Forms\Components\CheckboxList::make('roomTypes')
                     ->label('Room Types')
-                    ->relationship('roomTypes', 'name') // BelongsToMany relationship
-                    ->columns(2) // Optional: set number of columns
-                    ->required(), // Optional: make it required
+                    ->relationship('roomTypes', 'name') 
+                    ->columns(2) 
+                    ->required(), 
             ])->columns(1);
     }
 
